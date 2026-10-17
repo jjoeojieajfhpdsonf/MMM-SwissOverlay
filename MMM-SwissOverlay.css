@@ -1,0 +1,18 @@
+/* The overlay covers the whole mirror but never catches clicks or touches. */
+.MMM-SwissOverlay,
+.MMM-SwissOverlay .module-content,
+.swiss-overlay {
+	pointer-events: none;
+}
+
+.swiss-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+}
+
+.swiss-overlay canvas {
+	width: 100%;
+	height: 100%;
+	display: block;
+}

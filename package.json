@@ -1,0 +1,12 @@
+{
+	"name": "mmm-swissoverlay",
+	"version": "0.9.0",
+	"description": "Swiss holidays and seasons as a quiet full-screen overlay for MagicMirror²: 1 August, Fasnacht, Samichlaus, Advent and more, all configurable.",
+	"main": "MMM-SwissOverlay.js",
+	"scripts": {
+		"test": "node --test test/*.test.js"
+	},
+	"keywords": ["magicmirror", "magicmirror2", "switzerland", "schweiz", "holidays", "overlay", "fasnacht", "1-august"],
+	"repository": { "type": "git", "url": "https://github.com/jjoeojieajfhpdsonf/MMM-SwissOverlay.git" },
+	"license": "MIT"
+}
