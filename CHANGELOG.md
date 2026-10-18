@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Samichlaus: red Samichlaus hats (mitres) that rock gently in the snow instead of nuts and mandarins; new effect `mitres` for own occasions. Emoji style: 🎅 ❄️ ⭐.
 - `mm-manager.json`: all settings can be changed in a form in MagicMirror Manager (labels in German and English, a switch per occasion, dates, time of day, look, own occasions).
 
 ## 0.9.0 – 2026-10-18

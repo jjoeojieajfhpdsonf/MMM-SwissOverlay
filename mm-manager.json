@@ -289,17 +289,16 @@
 						"en": "St. Nicholas (Samichlaus)"
 					},
 					"hint": {
-						"de": "6. Dezember",
-						"en": "6 December"
+						"de": "6. Dezember, Chlausmützen und Schnee",
+						"en": "6 December, Samichlaus hats and snow"
 					},
 					"defaults": {
 						"from": "12-06",
-						"count": 26,
+						"count": 16,
 						"emojis": [
 							"🎅",
-							"🍊",
-							"🥜",
-							"🌰"
+							"❄️",
+							"⭐"
 						]
 					}
 				},
@@ -755,6 +754,13 @@
 							"label": {
 								"de": "Kronen",
 								"en": "Crowns"
+							}
+						},
+						{
+							"value": "mitres",
+							"label": {
+								"de": "Chlausmützen",
+								"en": "Samichlaus hats"
 							}
 						}
 					]

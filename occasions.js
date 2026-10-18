@@ -14,7 +14,7 @@
 
 	// Order = priority: the first active occasion is shown.
 	const BUILTIN = {
-		samichlaus: { from: "12-06", shape: "nuts", motion: "fall", count: 26, emojis: ["🎅", "🍊", "🥜", "🌰"], snow: true },
+		samichlaus: { from: "12-06", shape: "mitres", motion: "fall", count: 16, emojis: ["🎅", "❄️", "⭐"], snow: true },
 		threekings: { from: "01-06", shape: "crowns", motion: "fall", count: 22, emojis: ["👑", "⭐", "✨"], colors: ["#f2c94c", "#e8b33a", "#fff1b8"] },
 		christmas: { from: "12-24", until: "12-26", shape: "snow", motion: "fall", count: 80, emojis: ["🎄", "⭐", "❄️", "🎁"], lights: true },
 		newyear: { from: "12-31", until: "01-02", shape: "sparkles", motion: "fall", count: 60, emojis: ["🎆", "🎉", "🥂", "✨"], colors: ["#ffd76a", "#fff4c2", "#f6c343"], fireworks: true, fireworksHours: null },

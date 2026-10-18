@@ -21,6 +21,7 @@
 		petals: { size: [12, 20], speed: [30, 65], colors: ["#ffc2d1", "#ffe5ec"] },
 		nuts: { size: [18, 26], speed: [45, 90], colors: ["#c58b4c", "#f39c3c", "#a66a33"] },
 		crowns: { size: [24, 36], speed: [35, 70], colors: ["#f2c94c"] },
+		mitres: { size: [34, 48], speed: [30, 55], colors: ["#c8102e", "#d42a2a", "#b5122b"] },
 		stars: { size: [10, 18], speed: [25, 55], colors: ["#fff1b8", "#ffd76a"] },
 		emoji: { size: [26, 42], speed: [35, 75] }
 	};
@@ -154,6 +155,41 @@
 			ctx.lineTo(0, s * 0.44);
 			ctx.stroke();
 		},
+		mitres(ctx, s, color) {
+			// Samichlaus' bishop's hat: tall and pointed, red with gold bands, a gold cross and two ribbons
+			const w = s * 0.3;
+			const top = -s * 0.5;
+			const base = s * 0.3;
+			const gold = "#f2c94c";
+			// ribbons hanging down at the back
+			ctx.fillStyle = color;
+			ctx.fillRect(-w * 0.75, base, w * 0.4, s * 0.2);
+			ctx.fillRect(w * 0.35, base, w * 0.4, s * 0.2);
+			ctx.fillStyle = gold;
+			ctx.fillRect(-w * 0.75, base + s * 0.16, w * 0.4, s * 0.04);
+			ctx.fillRect(w * 0.35, base + s * 0.16, w * 0.4, s * 0.04);
+			ctx.beginPath();
+			ctx.moveTo(-w, base);
+			ctx.lineTo(-w, -s * 0.05);
+			ctx.quadraticCurveTo(-w * 0.95, -s * 0.38, 0, top);
+			ctx.quadraticCurveTo(w * 0.95, -s * 0.38, w, -s * 0.05);
+			ctx.lineTo(w, base);
+			ctx.closePath();
+			ctx.fillStyle = color;
+			ctx.fill();
+			ctx.save();
+			ctx.clip();
+			ctx.fillStyle = gold;
+			ctx.fillRect(-w, base - s * 0.1, w * 2, s * 0.1);
+			ctx.fillRect(-s * 0.035, top, s * 0.07, base - top);
+			ctx.restore();
+			// cross on the front
+			const cy = -s * 0.14;
+			const a = s * 0.11;
+			ctx.fillStyle = gold;
+			ctx.fillRect(-a, cy - s * 0.03, a * 2, s * 0.06);
+			ctx.fillRect(-s * 0.03, cy - a, s * 0.06, a * 2);
+		},
 		crowns(ctx, s, color) {
 			ctx.fillStyle = color;
 			ctx.beginPath();
@@ -208,6 +244,9 @@
 			this.size = def.size.map((v) => v * (o.size || 1));
 			this.speed = def.speed.map((v) => v * (o.speed || 1));
 			this.spin = this.kind === "snow" || this.kind === "confetti" ? 0 : this.kind === "emoji" ? 0.6 : 1.4;
+			// hats only rock gently, they don't tumble
+			this.rock = this.kind === "mitres";
+			if (this.rock) this.spin = 0;
 			this.parts = Array.from({ length: o.count }, () => this.spawn(true));
 		}
 		spawn(anywhere) {
@@ -240,7 +279,8 @@
 					continue;
 				}
 				ctx.globalAlpha = p.alpha;
-				if (p.vr) {
+				if (this.rock) p.rot = Math.sin(t * 0.0013 + p.phase) * 0.3;
+				if (p.vr || this.rock) {
 					ctx.save();
 					ctx.translate(x, p.y);
 					ctx.rotate(p.rot);
@@ -491,7 +531,7 @@
 				if (occ.webs && occ.style !== "emoji") this.layers.push(new Webs(occ, this.env));
 				if (occ.shape === "bats" && occ.style !== "emoji") this.layers.push(new Bats(occ, this.env));
 				else this.layers.push(new Drift(occ, this.env));
-				if (occ.snow) this.layers.push(new Drift({ shape: "snow", motion: "fall", count: Math.round(occ.count * 1.2), style: "graphics" }, this.env));
+				if (occ.snow) this.layers.push(new Drift({ shape: "snow", motion: "fall", count: Math.max(50, Math.round(occ.count * 1.2)), style: "graphics" }, this.env));
 				if (occ.lights) this.layers.push(new Lights(occ, this.env));
 				if (occ.candles) this.layers.push(new Candles(occ, this.env));
 				if (occ.fireworks) this.layers.push(new Fireworks(occ, this.env));

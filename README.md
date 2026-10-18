@@ -1,6 +1,6 @@
 # MMM-SwissOverlay
 
-Swiss holidays and seasons as a quiet full-screen overlay for [MagicMirror²](https://magicmirror.builders/): Swiss flags and fireworks on 1 August, Räppli at Fasnacht, nuts and mandarins for Samichlaus, Advent candles, and more. The dates move with the calendar (Easter, Fasnacht, Advent, Mother's Day are calculated every year), and **everything is configurable**: switch occasions off, change their dates, add your own (birthdays, anniversaries, your village's events).
+Swiss holidays and seasons as a quiet full-screen overlay for [MagicMirror²](https://magicmirror.builders/): Swiss flags and fireworks on 1 August, Räppli at Fasnacht, Samichlaus hats on 6 December, Advent candles, and more. The dates move with the calendar (Easter, Fasnacht, Advent, Mother's Day are calculated every year), and **everything is configurable**: switch occasions off, change their dates, add your own (birthdays, anniversaries, your village's events).
 
 It sits in `fullscreen_above`, never blocks clicks or touches, and runs no animation at all on days without an occasion.
 
@@ -8,7 +8,7 @@ It sits in `fullscreen_above`, never blocks clicks or touches, and runs no anima
 | :---: | :---: | :---: |
 | ![1 August](screenshots/bundesfeier.png) | ![Advent](screenshots/advent.png) | ![Halloween](screenshots/halloween.png) |
 | **Samichlaus (emoji style)** | **Fasnacht** | **Easter** |
-| ![Samichlaus](screenshots/samichlaus-emoji.png) | ![Fasnacht](screenshots/fasnacht.png) | ![Easter](screenshots/easter.png) |
+| ![Samichlaus](screenshots/samichlaus.png) | ![Fasnacht](screenshots/fasnacht.png) | ![Easter](screenshots/easter.png) |
 
 ## Occasions
 
@@ -21,7 +21,7 @@ It sits in `fullscreen_above`, never blocks clicks or touches, and runs no anima
 | Mother's Day | `mothersday` | 2nd Sunday in May | flower petals | |
 | Halloween | `halloween` | 24 … 31 October | bats | spider webs |
 | Advent | `advent` | 1st Advent … 23 December | snow | 1–4 candles, one per Advent Sunday |
-| Samichlaus | `samichlaus` | 6 December | nuts and mandarins | snow |
+| Samichlaus | `samichlaus` | 6 December | Samichlaus hats (mitres) | snow |
 | Christmas | `christmas` | 24 … 26 December | snow | string of lights |
 | New Year's Eve, New Year, Berchtoldstag | `newyear` | 31 December … 2 January | golden sparkles | fireworks |
 | Epiphany | `threekings` | 6 January | crowns | |
@@ -107,7 +107,7 @@ custom: [
 ]
 ```
 
-`effect` is one of `snow`, `confetti`, `sparkles`, `stars`, `flags`, `hearts`, `eggs`, `petals`, `nuts`, `crowns`; `direction: "up"` lets particles rise. Add `fireworks: true` for fireworks.
+`effect` is one of `snow`, `confetti`, `sparkles`, `stars`, `flags`, `hearts`, `eggs`, `petals`, `nuts`, `crowns`, `mitres`; `direction: "up"` lets particles rise. Add `fireworks: true` for fireworks.
 
 ### Writing dates
 
