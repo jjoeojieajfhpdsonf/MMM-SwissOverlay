@@ -1,0 +1,986 @@
+{
+	"$comment": "Settings description for MagicMirror Manager, see https://github.com/jjoeojieajfhpdsonf/magicMirrorManager/blob/main/docs/module-schema.md",
+	"fields": [
+		{
+			"key": "style",
+			"type": "select",
+			"label": {
+				"de": "Stil",
+				"en": "Style"
+			},
+			"help": {
+				"de": "Für alle Anlässe",
+				"en": "For all occasions"
+			},
+			"choices": [
+				{
+					"value": "graphics",
+					"label": {
+						"de": "Eigene Grafiken",
+						"en": "Drawings"
+					}
+				},
+				{
+					"value": "emoji",
+					"label": {
+						"de": "Emojis",
+						"en": "Emojis"
+					}
+				}
+			]
+		},
+		{
+			"key": "intensity",
+			"type": "select",
+			"label": {
+				"de": "Menge",
+				"en": "Amount"
+			},
+			"choices": [
+				{
+					"value": "low",
+					"label": {
+						"de": "Wenig",
+						"en": "Few"
+					}
+				},
+				{
+					"value": "medium",
+					"label": {
+						"de": "Mittel",
+						"en": "Medium"
+					}
+				},
+				{
+					"value": "high",
+					"label": {
+						"de": "Viel",
+						"en": "Many"
+					}
+				}
+			]
+		},
+		{
+			"key": "region",
+			"type": "select",
+			"label": {
+				"de": "Fasnacht nach",
+				"en": "Carnival dates for"
+			},
+			"choices": [
+				{
+					"value": "all",
+					"label": {
+						"de": "Ganze Schweiz",
+						"en": "All of Switzerland"
+					}
+				},
+				{
+					"value": "luzern",
+					"label": {
+						"de": "Luzern",
+						"en": "Lucerne"
+					}
+				},
+				{
+					"value": "basel",
+					"label": {
+						"de": "Basel",
+						"en": "Basel"
+					}
+				},
+				{
+					"value": "zurich",
+					"label": {
+						"de": "Zürich",
+						"en": "Zurich"
+					}
+				}
+			]
+		},
+		{
+			"key": "opacity",
+			"type": "range",
+			"label": {
+				"de": "Deckkraft",
+				"en": "Opacity"
+			},
+			"min": 0.1,
+			"max": 1,
+			"step": 0.05
+		},
+		{
+			"key": "occasions",
+			"type": "map",
+			"label": {
+				"de": "Anlässe",
+				"en": "Occasions"
+			},
+			"help": {
+				"de": "Antippen, um Datum, Uhrzeit oder Aussehen zu ändern",
+				"en": "Tap to change dates, time of day or look"
+			},
+			"keys": [
+				{
+					"value": "bundesfeier",
+					"label": {
+						"de": "1. August",
+						"en": "1 August (National Day)"
+					},
+					"hint": {
+						"de": "1. August, Feuerwerk ab 21 Uhr",
+						"en": "1 August, fireworks from 9 pm"
+					},
+					"defaults": {
+						"from": "08-01",
+						"count": 18,
+						"emojis": [
+							"🇨🇭",
+							"🏮",
+							"🎆"
+						],
+						"fireworksHours": [
+							"21:00",
+							"24:00"
+						]
+					}
+				},
+				{
+					"value": "fasnacht",
+					"label": {
+						"de": "Fasnacht",
+						"en": "Carnival (Fasnacht)"
+					},
+					"hint": {
+						"de": "Ganze Fasnachtszeit, je nach Region",
+						"en": "Whole carnival season, by region"
+					},
+					"defaults": {
+						"count": 120,
+						"emojis": [
+							"🎭",
+							"🎉",
+							"🥁",
+							"🎺",
+							"🤡"
+						],
+						"colors": [
+							"#ff595e",
+							"#ffca3a",
+							"#8ac926",
+							"#1982c4",
+							"#6a4c93",
+							"#ff924c",
+							"#fff"
+						]
+					}
+				},
+				{
+					"value": "valentine",
+					"label": {
+						"de": "Valentinstag",
+						"en": "Valentine's Day"
+					},
+					"hint": {
+						"de": "14. Februar",
+						"en": "14 February"
+					},
+					"defaults": {
+						"from": "02-14",
+						"count": 26,
+						"emojis": [
+							"❤️",
+							"💕",
+							"💖",
+							"😍"
+						],
+						"colors": [
+							"#ff6b8b",
+							"#ff8fab",
+							"#ffc2d1",
+							"#f25c7a"
+						]
+					}
+				},
+				{
+					"value": "easter",
+					"label": {
+						"de": "Ostern",
+						"en": "Easter"
+					},
+					"hint": {
+						"de": "Karfreitag bis Ostermontag",
+						"en": "Good Friday to Easter Monday"
+					},
+					"defaults": {
+						"count": 22,
+						"emojis": [
+							"🐣",
+							"🥚",
+							"🐰",
+							"🌷"
+						],
+						"colors": [
+							"#ffd6a5",
+							"#caffbf",
+							"#9bf6ff",
+							"#bdb2ff",
+							"#ffc6ff",
+							"#fdffb6"
+						]
+					}
+				},
+				{
+					"value": "mothersday",
+					"label": {
+						"de": "Muttertag",
+						"en": "Mother's Day"
+					},
+					"hint": {
+						"de": "2. Sonntag im Mai",
+						"en": "2nd Sunday in May"
+					},
+					"defaults": {
+						"count": 34,
+						"emojis": [
+							"🌷",
+							"🌸",
+							"💐",
+							"❤️"
+						],
+						"colors": [
+							"#ffc2d1",
+							"#ffe5ec",
+							"#ff8fab",
+							"#fff"
+						]
+					}
+				},
+				{
+					"value": "halloween",
+					"label": {
+						"de": "Halloween",
+						"en": "Halloween"
+					},
+					"hint": {
+						"de": "24. – 31. Oktober",
+						"en": "24 – 31 October"
+					},
+					"defaults": {
+						"from": "10-24",
+						"until": "10-31",
+						"count": 9,
+						"emojis": [
+							"🎃",
+							"🦇",
+							"👻",
+							"🕷️"
+						],
+						"colors": [
+							"#ff9a3c",
+							"#ffb35c"
+						]
+					}
+				},
+				{
+					"value": "samichlaus",
+					"label": {
+						"de": "Samichlaus",
+						"en": "St. Nicholas (Samichlaus)"
+					},
+					"hint": {
+						"de": "6. Dezember",
+						"en": "6 December"
+					},
+					"defaults": {
+						"from": "12-06",
+						"count": 26,
+						"emojis": [
+							"🎅",
+							"🍊",
+							"🥜",
+							"🌰"
+						]
+					}
+				},
+				{
+					"value": "advent",
+					"label": {
+						"de": "Advent",
+						"en": "Advent"
+					},
+					"hint": {
+						"de": "1. Advent bis 23. Dezember, mit Kerzen",
+						"en": "1st Advent to 23 December, with candles"
+					},
+					"defaults": {
+						"until": "12-23",
+						"count": 45,
+						"emojis": [
+							"❄️",
+							"⭐",
+							"🕯️"
+						]
+					}
+				},
+				{
+					"value": "christmas",
+					"label": {
+						"de": "Weihnachten",
+						"en": "Christmas"
+					},
+					"hint": {
+						"de": "24. – 26. Dezember",
+						"en": "24 – 26 December"
+					},
+					"defaults": {
+						"from": "12-24",
+						"until": "12-26",
+						"count": 80,
+						"emojis": [
+							"🎄",
+							"⭐",
+							"❄️",
+							"🎁"
+						]
+					}
+				},
+				{
+					"value": "newyear",
+					"label": {
+						"de": "Silvester und Neujahr",
+						"en": "New Year's Eve"
+					},
+					"hint": {
+						"de": "31. Dezember bis Berchtoldstag",
+						"en": "31 December to 2 January"
+					},
+					"defaults": {
+						"from": "12-31",
+						"until": "01-02",
+						"count": 60,
+						"emojis": [
+							"🎆",
+							"🎉",
+							"🥂",
+							"✨"
+						],
+						"colors": [
+							"#ffd76a",
+							"#fff4c2",
+							"#f6c343"
+						]
+					}
+				},
+				{
+					"value": "threekings",
+					"label": {
+						"de": "Dreikönigstag",
+						"en": "Epiphany (Three Kings)"
+					},
+					"hint": {
+						"de": "6. Januar",
+						"en": "6 January"
+					},
+					"defaults": {
+						"from": "01-06",
+						"count": 22,
+						"emojis": [
+							"👑",
+							"⭐",
+							"✨"
+						],
+						"colors": [
+							"#f2c94c",
+							"#e8b33a",
+							"#fff1b8"
+						]
+					}
+				}
+			],
+			"fields": [
+				{
+					"key": "from",
+					"type": "date",
+					"label": {
+						"de": "Von",
+						"en": "From"
+					},
+					"placeholder": {
+						"de": "wie vorgesehen",
+						"en": "as planned"
+					}
+				},
+				{
+					"key": "until",
+					"type": "date",
+					"label": {
+						"de": "Bis",
+						"en": "Until"
+					},
+					"placeholder": {
+						"de": "wie vorgesehen",
+						"en": "as planned"
+					}
+				},
+				{
+					"key": "hours",
+					"type": "hours",
+					"label": {
+						"de": "Tageszeit",
+						"en": "Time of day"
+					}
+				},
+				{
+					"key": "style",
+					"type": "select",
+					"label": {
+						"de": "Stil",
+						"en": "Style"
+					},
+					"choices": [
+						{
+							"value": null,
+							"label": {
+								"de": "Wie oben",
+								"en": "As above"
+							}
+						},
+						{
+							"value": "graphics",
+							"label": {
+								"de": "Eigene Grafiken",
+								"en": "Drawings"
+							}
+						},
+						{
+							"value": "emoji",
+							"label": {
+								"de": "Emojis",
+								"en": "Emojis"
+							}
+						}
+					]
+				},
+				{
+					"key": "count",
+					"type": "number",
+					"label": {
+						"de": "Anzahl",
+						"en": "Count"
+					},
+					"min": 1,
+					"max": 300
+				},
+				{
+					"key": "speed",
+					"type": "range",
+					"label": {
+						"de": "Tempo",
+						"en": "Speed"
+					},
+					"min": 0.3,
+					"max": 3,
+					"step": 0.1,
+					"default": 1
+				},
+				{
+					"key": "size",
+					"type": "range",
+					"label": {
+						"de": "Grösse",
+						"en": "Size"
+					},
+					"min": 0.3,
+					"max": 3,
+					"step": 0.1,
+					"default": 1
+				},
+				{
+					"key": "emojis",
+					"type": "tags",
+					"label": {
+						"de": "Emojis",
+						"en": "Emojis"
+					},
+					"help": {
+						"de": "Für den Emoji-Stil",
+						"en": "For the emoji style"
+					}
+				},
+				{
+					"key": "colors",
+					"type": "colors",
+					"label": {
+						"de": "Farben",
+						"en": "Colours"
+					},
+					"help": {
+						"de": "Für den Grafik-Stil",
+						"en": "For the drawings style"
+					}
+				},
+				{
+					"key": "fireworks",
+					"type": "toggle",
+					"label": {
+						"de": "Feuerwerk",
+						"en": "Fireworks"
+					},
+					"default": true,
+					"only": [
+						"bundesfeier",
+						"newyear"
+					]
+				},
+				{
+					"key": "fireworksHours",
+					"type": "hours",
+					"label": {
+						"de": "Feuerwerk um",
+						"en": "Fireworks at"
+					},
+					"only": [
+						"bundesfeier",
+						"newyear"
+					]
+				},
+				{
+					"key": "candles",
+					"type": "toggle",
+					"label": {
+						"de": "Adventskerzen",
+						"en": "Advent candles"
+					},
+					"default": true,
+					"only": [
+						"advent"
+					]
+				},
+				{
+					"key": "candlesPosition",
+					"type": "select",
+					"label": {
+						"de": "Kerzen",
+						"en": "Candles"
+					},
+					"only": [
+						"advent"
+					],
+					"choices": [
+						{
+							"value": null,
+							"label": {
+								"de": "Unten links",
+								"en": "Bottom left"
+							}
+						},
+						{
+							"value": "bottom-right",
+							"label": {
+								"de": "Unten rechts",
+								"en": "Bottom right"
+							}
+						}
+					]
+				},
+				{
+					"key": "lights",
+					"type": "toggle",
+					"label": {
+						"de": "Lichterkette",
+						"en": "Fairy lights"
+					},
+					"default": true,
+					"only": [
+						"christmas"
+					]
+				},
+				{
+					"key": "webs",
+					"type": "toggle",
+					"label": {
+						"de": "Spinnennetze",
+						"en": "Cobwebs"
+					},
+					"default": true,
+					"only": [
+						"halloween"
+					]
+				},
+				{
+					"key": "snow",
+					"type": "toggle",
+					"label": {
+						"de": "Schnee",
+						"en": "Snow"
+					},
+					"default": true,
+					"only": [
+						"samichlaus"
+					]
+				}
+			]
+		},
+		{
+			"key": "custom",
+			"type": "list",
+			"label": {
+				"de": "Eigene Anlässe",
+				"en": "Own occasions"
+			},
+			"help": {
+				"de": "Geburtstage, Ferien, alles mit Datum",
+				"en": "Birthdays, holidays, anything with a date"
+			},
+			"addLabel": {
+				"de": "Anlass hinzufügen",
+				"en": "Add occasion"
+			},
+			"new": {
+				"name": "",
+				"from": "01-01",
+				"effect": "confetti"
+			},
+			"fields": [
+				{
+					"key": "name",
+					"type": "text",
+					"label": {
+						"de": "Name",
+						"en": "Name"
+					}
+				},
+				{
+					"key": "from",
+					"type": "date",
+					"label": {
+						"de": "Von",
+						"en": "From"
+					}
+				},
+				{
+					"key": "until",
+					"type": "date",
+					"label": {
+						"de": "Bis",
+						"en": "Until"
+					},
+					"placeholder": {
+						"de": "nur ein Tag",
+						"en": "one day"
+					}
+				},
+				{
+					"key": "hours",
+					"type": "hours",
+					"label": {
+						"de": "Tageszeit",
+						"en": "Time of day"
+					}
+				},
+				{
+					"key": "effect",
+					"type": "select",
+					"label": {
+						"de": "Effekt",
+						"en": "Effect"
+					},
+					"choices": [
+						{
+							"value": "snow",
+							"label": {
+								"de": "Schnee",
+								"en": "Snow"
+							}
+						},
+						{
+							"value": "confetti",
+							"label": {
+								"de": "Konfetti",
+								"en": "Confetti"
+							}
+						},
+						{
+							"value": "sparkles",
+							"label": {
+								"de": "Funken",
+								"en": "Sparkles"
+							}
+						},
+						{
+							"value": "stars",
+							"label": {
+								"de": "Sterne",
+								"en": "Stars"
+							}
+						},
+						{
+							"value": "flags",
+							"label": {
+								"de": "Schweizer Fahnen",
+								"en": "Swiss flags"
+							}
+						},
+						{
+							"value": "hearts",
+							"label": {
+								"de": "Herzen",
+								"en": "Hearts"
+							}
+						},
+						{
+							"value": "eggs",
+							"label": {
+								"de": "Ostereier",
+								"en": "Easter eggs"
+							}
+						},
+						{
+							"value": "petals",
+							"label": {
+								"de": "Blütenblätter",
+								"en": "Petals"
+							}
+						},
+						{
+							"value": "nuts",
+							"label": {
+								"de": "Nüsse und Mandarinen",
+								"en": "Nuts and tangerines"
+							}
+						},
+						{
+							"value": "crowns",
+							"label": {
+								"de": "Kronen",
+								"en": "Crowns"
+							}
+						}
+					]
+				},
+				{
+					"key": "direction",
+					"type": "select",
+					"label": {
+						"de": "Richtung",
+						"en": "Direction"
+					},
+					"choices": [
+						{
+							"value": null,
+							"label": {
+								"de": "Fallen",
+								"en": "Fall"
+							}
+						},
+						{
+							"value": "up",
+							"label": {
+								"de": "Steigen",
+								"en": "Rise"
+							}
+						}
+					]
+				},
+				{
+					"key": "style",
+					"type": "select",
+					"label": {
+						"de": "Stil",
+						"en": "Style"
+					},
+					"choices": [
+						{
+							"value": null,
+							"label": {
+								"de": "Wie oben",
+								"en": "As above"
+							}
+						},
+						{
+							"value": "graphics",
+							"label": {
+								"de": "Eigene Grafiken",
+								"en": "Drawings"
+							}
+						},
+						{
+							"value": "emoji",
+							"label": {
+								"de": "Emojis",
+								"en": "Emojis"
+							}
+						}
+					]
+				},
+				{
+					"key": "emojis",
+					"type": "tags",
+					"label": {
+						"de": "Emojis",
+						"en": "Emojis"
+					},
+					"help": {
+						"de": "Für den Emoji-Stil",
+						"en": "For the emoji style"
+					}
+				},
+				{
+					"key": "colors",
+					"type": "colors",
+					"label": {
+						"de": "Farben",
+						"en": "Colours"
+					}
+				},
+				{
+					"key": "fireworks",
+					"type": "toggle",
+					"label": {
+						"de": "Feuerwerk",
+						"en": "Fireworks"
+					}
+				}
+			]
+		},
+		{
+			"key": "forceOccasion",
+			"type": "select",
+			"advanced": true,
+			"label": {
+				"de": "Jetzt zeigen",
+				"en": "Show now"
+			},
+			"help": {
+				"de": "Zum Ausprobieren, unabhängig vom Datum",
+				"en": "To try it out, whatever the date"
+			},
+			"choices": [
+				{
+					"value": null,
+					"label": {
+						"de": "Aus",
+						"en": "Off"
+					}
+				},
+				{
+					"value": "bundesfeier",
+					"label": {
+						"de": "1. August",
+						"en": "1 August (National Day)"
+					}
+				},
+				{
+					"value": "fasnacht",
+					"label": {
+						"de": "Fasnacht",
+						"en": "Carnival (Fasnacht)"
+					}
+				},
+				{
+					"value": "valentine",
+					"label": {
+						"de": "Valentinstag",
+						"en": "Valentine's Day"
+					}
+				},
+				{
+					"value": "easter",
+					"label": {
+						"de": "Ostern",
+						"en": "Easter"
+					}
+				},
+				{
+					"value": "mothersday",
+					"label": {
+						"de": "Muttertag",
+						"en": "Mother's Day"
+					}
+				},
+				{
+					"value": "halloween",
+					"label": {
+						"de": "Halloween",
+						"en": "Halloween"
+					}
+				},
+				{
+					"value": "samichlaus",
+					"label": {
+						"de": "Samichlaus",
+						"en": "St. Nicholas (Samichlaus)"
+					}
+				},
+				{
+					"value": "advent",
+					"label": {
+						"de": "Advent",
+						"en": "Advent"
+					}
+				},
+				{
+					"value": "christmas",
+					"label": {
+						"de": "Weihnachten",
+						"en": "Christmas"
+					}
+				},
+				{
+					"value": "newyear",
+					"label": {
+						"de": "Silvester und Neujahr",
+						"en": "New Year's Eve"
+					}
+				},
+				{
+					"value": "threekings",
+					"label": {
+						"de": "Dreikönigstag",
+						"en": "Epiphany (Three Kings)"
+					}
+				}
+			]
+		},
+		{
+			"key": "testDate",
+			"type": "fulldate",
+			"advanced": true,
+			"label": {
+				"de": "Testdatum",
+				"en": "Test date"
+			},
+			"help": {
+				"de": "So tun, als wäre heute dieser Tag",
+				"en": "Pretend today is this day"
+			}
+		},
+		{
+			"key": "fps",
+			"type": "number",
+			"advanced": true,
+			"label": {
+				"de": "Bilder pro Sekunde",
+				"en": "Frames per second"
+			},
+			"help": {
+				"de": "Weniger braucht weniger Leistung",
+				"en": "Lower saves CPU"
+			},
+			"min": 10,
+			"max": 60
+		},
+		{
+			"key": "checkInterval",
+			"type": "number",
+			"advanced": true,
+			"label": {
+				"de": "Prüfintervall (ms)",
+				"en": "Check interval (ms)"
+			},
+			"min": 10000,
+			"max": 3600000
+		}
+	]
+}

@@ -51,6 +51,8 @@ The emoji style needs a colour emoji font. On a Raspberry Pi: `sudo apt install 
 
 ## Configuration
 
+With [MagicMirror Manager](https://github.com/jjoeojieajfhpdsonf/magicMirrorManager) you can set everything below in a form, in German or English: switch occasions on and off, change their dates, time of day, look, and add your own (the module describes its settings in `mm-manager.json`). Or write it into `config.js` yourself:
+
 | Option | Default | Description |
 |---|---|---|
 | `style` | `"graphics"` | `"graphics"` (own, quiet drawings) or `"emoji"`. Can also be set per occasion. |
@@ -130,6 +132,8 @@ Open `preview.html` in a browser: pick an occasion, the style and the intensity,
 ```bash
 node --test test/*.test.js
 ```
+
+When you add a setting or an occasion, describe it in `mm-manager.json` too; the tests check that it matches.
 
 ## License
 
